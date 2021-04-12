@@ -7,7 +7,7 @@
 
 
 
-export const Bibi = { 'version': '____Bibi-Version____', 'href': 'https://bibi.epub.link', Status: '', TimeOrigin: Date.now() };
+export const Bibi = { 'version': '____Bibi-Version____', 'href': 'http://booknando.com.br/BibiReader', Status: '', TimeOrigin: Date.now() };
 
 
 Bibi.SettingTypes = {
@@ -276,6 +276,7 @@ Bibi.initialize = () => {
             for(let l = NLs.length, i = 0; i < l; i++) {
                 const Lan = NLs[i].split ? NLs[i].split('-')[0] : '';
                 if(Lan == 'ja') return 'ja';
+                if(Lan == 'pt') return 'pt';
                 if(Lan == 'en') break;
             }                   return 'en';
         })([])));
@@ -3403,6 +3404,14 @@ I.Catcher = { create: () => { if(S['book-data'] || S['book'] || !S['accept-local
                 `<p><small>(Open in Your Device without Uploading)</small></p>`,
             `</div>`
         ].join(''),
+        pt: [
+            `<div class="pgroup" lang="pt-br">`,
+                `<p><strong>Apenas arraste e solte aqui seu arquivo EPUB para abri-lo!</strong></p>`,
+                `<p><em>Você pode abrir seu próprio EPUB <br/> diretamente no seu aparelho, sem precisar fazer upload.</em></p>`,
+                `<p><span>Por favor ${ O.TouchOS ? 'toque a tela' : 'arraste e solte aqui. <br />ou clique na tela ' } e selecione o arquivo desejado.</span></p>`,
+                
+            `</div>`
+        ].join(''),
         ja: [
             `<div class="pgroup" lang="ja">`,
                 `<p><strong>EPUBファイルをここにください！</strong></p>`,
@@ -3523,7 +3532,7 @@ I.Menu = { create: () => {
         const Opener = Config.bindOpener(Menu.R.addButtonGroup({ Sticky: true }).addButton({
             Type: 'toggle',
             Labels: {
-                default: { default: `Configure Setting`,            ja: `設定を変更` },
+                default: { default: `Configure Setting`, pt:  `Ajuste das configurações`, ja: `設定を変更` },
                 active:  { default: `Close Setting-Menu`, ja: `設定メニューを閉じる` }
             },
             Help: true,
@@ -3539,20 +3548,20 @@ I.Menu = { create: () => {
             const Config = I.Menu.Config;
             const /* SpreadShapes */ SSs = (/* SpreadShape */ SS => SS + SS + SS)((/* ItemShape */ IS => `<span class="bibi-shape bibi-shape-spread">${ IS + IS }</span>`)(`<span class="bibi-shape bibi-shape-item"></span>`));
             const Section = Config.ViewModeSection = Config.addSection({
-                Labels: { default: { default: `View Mode`, ja: `閲覧モード` } },
+                Labels: { default: { default: `View Mode`,  pt: `Modo de visualização`, ja: `閲覧モード` } },
                 ButtonGroups: [{
                     ButtonType: 'radio',
                     Buttons: [{
                         Mode: 'paged',
-                        Labels: { default: { default: `Spread / Page`, ja: `見開き／ページ` } },
+                        Labels: { default: { default: `Spread / Page`, pt: `Spread / Página`, ja: `見開き／ページ` } },
                         Icon: `<span class="bibi-icon bibi-icon-view bibi-icon-view-paged"><span class="bibi-shape bibi-shape-spreads bibi-shape-spreads-paged">${ SSs }</span></span>`
                     }, {
                         Mode: 'horizontal',
-                        Labels: { default: { default: `<span class="non-visual-in-label">⇄ </span>Horizontal Scroll`, ja: `<span class="non-visual-in-label">⇄ </span>横スクロール` } },
+                        Labels: { default: { default: `<span class="non-visual-in-label">⇄ </span>Horizontal Scroll`, pt: `<span class="non-visual-in-label">⇄ </span>Rolagem Horizontal`, ja: `<span class="non-visual-in-label">⇄ </span>横スクロール` } },
                         Icon: `<span class="bibi-icon bibi-icon-view bibi-icon-view-horizontal"><span class="bibi-shape bibi-shape-spreads bibi-shape-spreads-horizontal">${ SSs }</span></span>`
                     }, {
                         Mode: 'vertical',
-                        Labels: { default: { default: `<span class="non-visual-in-label">⇅ </span>Vertical Scroll`, ja: `<span class="non-visual-in-label">⇅ </span>縦スクロール` } },
+                        Labels: { default: { default: `<span class="non-visual-in-label">⇅ </span>Vertical Scroll`, pt: `<span class="non-visual-in-label">⇅ </span>Rolagem Vertical`, ja: `<span class="non-visual-in-label">⇅ </span>縦スクロール` } },
                         Icon: `<span class="bibi-icon bibi-icon-view bibi-icon-view-vertical"><span class="bibi-shape bibi-shape-spreads bibi-shape-spreads-vertical">${ SSs }</span></span>`
                     }].map(Button => sML.edit(Button, {
                         Notes: true,
@@ -3653,7 +3662,7 @@ I.Menu = { create: () => {
             });
             if(Components.includes('BibiWebsiteLink')) Buttons.push({
                 Type: 'link',
-                Labels: { default: { default: `Bibi | Official Website` } },
+                Labels: { default: { default: `Booknando | Website Oficial` } },
                 Icon: `<span class="bibi-icon bibi-icon-open-newwindow"></span>`,
                 href: Bibi['href'],
                 target: '_blank'
