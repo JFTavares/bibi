@@ -16,9 +16,10 @@ E você pode incorporá-lo em outras páginas da web.
 
 ### Especificações
 
-* Comaptível com EPUB 3+ e  ePub2. 
+* Abre arquivos ePub3 e  ePub2. 
 * Suporta tanto o ePub fluído quando o fixo em várias línguas.
-* Produzido com with JavaScript. 
+* Ativado o suporte para interatividades (uso de Javascript)
+* Linguagem de programacão usada: JavaScript. 
 * Funciona em todos os principais navegadores em vários OS/devices.
 * Software livre e gratuito. Software Open source com a Licença MIT.
 
