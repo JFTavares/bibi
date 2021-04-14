@@ -3406,9 +3406,9 @@ I.Catcher = { create: () => { if(S['book-data'] || S['book'] || !S['accept-local
         ].join(''),
         pt: [
             `<div class="pgroup" lang="pt-br">`,
-                `<p><strong>Apenas arraste e solte aqui seu arquivo EPUB para abri-lo!</strong></p>`,
+                `<p><strong>Arraste e solte aqui seu arquivo EPUB para abri-lo!</strong></p>`,
                 `<p><em>Você pode abrir seu próprio EPUB <br/> diretamente no seu aparelho, sem precisar fazer upload.</em></p>`,
-                `<p><span>Por favor ${ O.TouchOS ? 'toque a tela' : 'arraste e solte aqui. <br />ou clique na tela ' } e selecione o arquivo desejado.</span></p>`,
+                `<p><span>Você pode também ${ O.TouchOS ? 'tocar a tela' : '<br />clicar na tela ' } e selecionar o arquivo desejado.</span></p>`,
                 
             `</div>`
         ].join(''),
@@ -3574,7 +3574,9 @@ I.Menu = { create: () => {
                         Name: 'full-breadth-layout-in-scroll',
                         Type: 'toggle',
                         Notes: false,
-                        Labels: { default: { default: `Full Width for Each Page <small>(in Scrolling Mode)</small>`, ja: `スクロール表示で各ページを幅一杯に</small>` } },
+                        Labels: { default: { default: `Full Width for Each Page <small>(in Scrolling Mode)</small>`, 
+                        pt: `Página larga <small>(rolagem verticam)</small>`,
+                        ja: `スクロール表示で各ページを幅一杯に</small>` } },
                         Icon: `<span class="bibi-icon bibi-icon-full-breadth-layout"></span>`,
                         action: function() {
                             const IsActive = (this.UIState == 'active');
@@ -3609,7 +3611,7 @@ I.Menu = { create: () => {
                 Buttons.push({
                     Type: 'link',
                     Labels: {
-                        default: { default: `Open in New Window`, ja: `あたらしいウィンドウで開く` }
+                        default: { default: `Open in New Window`, pt: `Abra em uma nova janela`, ja: `あたらしいウィンドウで開く` }
                     },
                     Icon: `<span class="bibi-icon bibi-icon-open-newwindow"></span>`,
                     id: 'bibi-button-open-newwindow',
@@ -3621,8 +3623,8 @@ I.Menu = { create: () => {
                 Buttons.push({
                     Type: 'toggle',
                     Labels: {
-                        default: { default: `Enter Fullscreen`, ja: `フルスクリーンモード` },
-                        active:  { default: `Exit Fullscreen`, ja: `フルスクリーンモード解除` }
+                        default: { default: `Enter Fullscreen`,  pt: `Abrir modo tela cheia`, ja: `フルスクリーンモード` },
+                        active:  { default: `Exit Fullscreen`, default: `Sair modo tela cheia`, ja: `フルスクリーンモード解除` }
                     },
                     Icon: `<span class="bibi-icon bibi-icon-toggle-fullscreen"></span>`,
                     id: 'bibi-button-toggle-fullscreen',
@@ -3645,7 +3647,7 @@ I.Menu = { create: () => {
                 });
             }
             if(Buttons.length) {
-                const Section = Config.WindowSection = Config.addSection({ Labels: { default: { default: `Window Control`, ja: `ウィンドウ制御` } } });
+                const Section = Config.WindowSection = Config.addSection({ Labels: { default: {  default: `Window Control`, pt: `Controle da janela`, ja: `ウィンドウ制御` } } });
                 Section.addButtonGroup({ Buttons: Buttons });
             }
         }};
@@ -3662,7 +3664,7 @@ I.Menu = { create: () => {
             });
             if(Components.includes('BibiWebsiteLink')) Buttons.push({
                 Type: 'link',
-                Labels: { default: { default: `Booknando | Website Oficial` } },
+                Labels: { default: { default: `Bibi eReader | Booknando` } },
                 Icon: `<span class="bibi-icon bibi-icon-open-newwindow"></span>`,
                 href: Bibi['href'],
                 target: '_blank'
@@ -3692,8 +3694,8 @@ I.Panel = { create: () => {
     const Opener = Panel.Opener = I.Menu.L.addButtonGroup({ Sticky: true }).addButton({
         Type: 'toggle',
         Labels: {
-            default: { default: `Open Index`,  ja: `目次を開く`   },
-            active:  { default: `Close Index`, ja: `目次を閉じる` }
+            default: { default: `Open Index`, pt: `Abrir Índice`, ja: `目次を開く`   },
+            active:  { default: `Close Index`,  pt: `Fechar Índice`, ja: `目次を閉じる` }
         },
         Help: true,
         Icon: `<span class="bibi-icon bibi-icon-toggle-panel">${ (Bars => { for(let i = 1; i <= 6; i++) Bars += '<span></span>'; return Bars; })('') }</span>`,
@@ -3735,7 +3737,7 @@ I.Help = { create: () => {
 
 
 I.PoweredBy = { create: () => {
-    const PoweredBy = I.PoweredBy = O.Body.appendChild(sML.create('div', { id: 'bibi-poweredby', innerHTML: `<p><a href="${ Bibi['href'] }" target="_blank" title="Bibi | Official Website">Bibi</a></p>` }));
+    const PoweredBy = I.PoweredBy = O.Body.appendChild(sML.create('div', { id: 'bibi-poweredby', innerHTML: `<p><a href="${ Bibi['href'] }" target="_blank" title="Bibi eReader | Booknando ">Bibi</a></p>` }));
     /*
     sML.appendCSSRule([ // Optimize to Scrollbar Size
         'html.appearance-horizontal div#bibi-poweredby',
@@ -3844,28 +3846,28 @@ I.FontSizeChanger = { create: () => {
             id: 'bibi-subpanel_font-size',
             open: () => {}
         }).addSection({
-            Labels: { default: { default: `Choose Font Size`, ja: `文字サイズを選択` } }
+            Labels: { default: { default: `Choose Font Size`, pt: `Tamanho da fonte`, ja: `文字サイズを選択` } }
         }).addButtonGroup({
             //Tiled: true,
             ButtonType: 'radio',
             Buttons: [{
-                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Ex-Large`,                        ja: `<span class="non-visual-in-label">文字サイズ：</span>最大` } },
+                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Muito`,  pt: `<span class="non-visual-in-label">Font Size:</span> Muito grande`,                       ja: `<span class="non-visual-in-label">文字サイズ：</span>最大` } },
                 Icon: `<span class="bibi-icon bibi-icon-fontsize bibi-icon-fontsize-exlarge"></span>`,
                 action: changeFontSizeStep, Step:  2
             }, {
-                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Large`,                           ja: `<span class="non-visual-in-label">文字サイズ：</span>大` } },
+                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Large`,   pt: `<span class="non-visual-in-label">Font Size:</span> Grande`,                        ja: `<span class="non-visual-in-label">文字サイズ：</span>大` } },
                 Icon: `<span class="bibi-icon bibi-icon-fontsize bibi-icon-fontsize-large"></span>`,
                 action: changeFontSizeStep, Step:  1
             }, {
-                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Medium <small>(default)</small>`, ja: `<span class="non-visual-in-label">文字サイズ：</span>中<small>（初期値）</small>` } },
+                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Medium <small>(default)</small>`, pt: `<span class="non-visual-in-label">Font Size:</span> Médio <small>(padrão)</small>`, ja: `<span class="non-visual-in-label">文字サイズ：</span>中<small>（初期値）</small>` } },
                 Icon: `<span class="bibi-icon bibi-icon-fontsize bibi-icon-fontsize-medium"></span>`,
                 action: changeFontSizeStep, Step:  0
             }, {
-                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Small`,                           ja: `<span class="non-visual-in-label">文字サイズ：</span>小` } },
+                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Small`,   default: `<span class="non-visual-in-label">Font Size:</span> Pequeno`,                        ja: `<span class="non-visual-in-label">文字サイズ：</span>小` } },
                 Icon: `<span class="bibi-icon bibi-icon-fontsize bibi-icon-fontsize-small"></span>`,
                 action: changeFontSizeStep, Step: -1
             }, {
-                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Ex-Small`,                        ja: `<span class="non-visual-in-label">文字サイズ：</span>最小` } },
+                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Ex-Small`,    pt: `<span class="non-visual-in-label">Font Size:</span> Muito pequeno`,                     ja: `<span class="non-visual-in-label">文字サイズ：</span>最小` } },
                 Icon: `<span class="bibi-icon bibi-icon-fontsize bibi-icon-fontsize-exsmall"></span>`,
                 action: changeFontSizeStep, Step: -2
             }]

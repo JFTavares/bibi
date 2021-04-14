@@ -103,9 +103,9 @@ Bibi.preset({
 //-- Extra
 //----------------------------------------------------------------------------------------------------------------------------------------------
 
-"website-name-in-title"    : "", // "" or name of your website replaces string "Bibi" in <title>.
-"website-name-in-menu"     : "", // "" or name of your website appears in setting-menu as a link. (Requires "website-href")
-"website-href"             : "", // "" or URL of your website to be used for the link in setting-menu. (Requires "website-name-in-menu")
+"website-name-in-title"    : "Booknando - Tecnologia a serviço da vida", // "" or name of your website replaces string "Bibi" in <title>.
+"website-name-in-menu"     : "Booknando", // "" or name of your website appears in setting-menu as a link. (Requires "website-href")
+"website-href"             : "http://booknando.com.br", // "" or URL of your website to be used for the link in setting-menu. (Requires "website-name-in-menu")
 "remove-bibi-website-link" : false, // true or false (if true, the link to Bibi Website is not to be added in setting-menu)
 
 
@@ -135,7 +135,7 @@ Bibi.preset({
 // * keep your Bibi and website not to open files which you can not guarantee its security.
 //----------------------------------------------------------------------------------------------------------------------------------------------
 
-/* !!!! BE CAREFUL !!!! */ "allow-scripts-in-content" : false, // true or false (false is recommended).
+/* !!!! BE CAREFUL !!!! */ "allow-scripts-in-content" : true, // true or false (false is recommended).
 // If you change its value `true`, Bibi does not remove scripts natively-included in EPUB.
 // It makes Bibi to be able to open EPUBs including useful scripts.
 // But on the other hand, it may also allow XSS of malicious EPUB in some cases.

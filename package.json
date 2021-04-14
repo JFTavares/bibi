@@ -1,10 +1,10 @@
 {
-  "name": "bibi",
-  "version": "1.2.0",
+  "name": "bibi eReader",
+  "version": "1.2.2",
   "author": {
     "name": "Satoru Matsushima"
   },
-  "description": "Bibi | EPUB Reader on your website.",
+  "description": "Bibi Reader | EPUB Reader diretamente no seu site.",
   "keywords": [
     "EPUB",
     "Reading System",
