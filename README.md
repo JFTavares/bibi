@@ -1,28 +1,30 @@
 Bibi
 ================================================================================================================================
 
-EPUB Reader on your website.
+EPUB Reader no seu site.
 
 
 
 
-Summary
+Resumo
 --------------------------------------------------------------------------------------------------------------------------------
 
-You can publish EPUB books on the web, with full-featured viewer running on web browser.
-And you can embed it in other webpages (like YouTube videos).
+Você pode publicar livros em formato EPUB na web, com este visualizador completo, sem precisar instalar nada e executando no navegador web.
+E você pode incorporá-lo em outras páginas da web.
 
 
 
-### Spec.
+### Especificações
 
-* EPUB 3+ and 2 compliant. Supports both reflowable and fixed-layout books of various language.
-* Made with JavaScript. Works compatibly with all major web browsers on various OS/devices.
-* Free. Open source software released under the MIT License.
+* Comaptível com EPUB 3+ e  ePub2. 
+* Suporta tanto o ePub fluído quando o fixo em várias línguas.
+* Produzido com with JavaScript. 
+* Funciona em todos os principais navegadores em vários OS/devices.
+* Software livre e gratuito. Software Open source com a Licença MIT.
 
 
 
-### Table of Contents
+### Conteúdo
 
 1. [How to Setup &amp; Read/Publish EPUB Books](#how-to-setup--readpublish-epub-books) (for Users/Publishers)
 2. [How to Arrange Development Environment](#how-to-arrange-development-environment) (for Developers)
