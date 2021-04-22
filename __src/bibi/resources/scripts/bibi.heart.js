@@ -3624,7 +3624,7 @@ I.Menu = { create: () => {
                     Type: 'toggle',
                     Labels: {
                         default: { default: `Enter Fullscreen`,  pt: `Abrir modo tela cheia`, ja: `フルスクリーンモード` },
-                        active:  { default: `Exit Fullscreen`, default: `Sair modo tela cheia`, ja: `フルスクリーンモード解除` }
+                        active:  { default: `Exit Fullscreen`, pt: `Sair modo tela cheia`, ja: `フルスクリーンモード解除` }
                     },
                     Icon: `<span class="bibi-icon bibi-icon-toggle-fullscreen"></span>`,
                     id: 'bibi-button-toggle-fullscreen',
@@ -3836,8 +3836,8 @@ I.FontSizeChanger = { create: () => {
             Opener: I.Menu.R.addButtonGroup({ Sticky: true, id: 'bibi-buttongroup_font-size' }).addButton({
                 Type: 'toggle',
                 Labels: {
-                    default: { default: `Change Font Size`,     ja: `文字サイズを変更` },
-                    active:  { default: `Close Font Size Menu`, ja: `文字サイズメニューを閉じる` }
+                    default: { default: `Change Font Size`, pt: `Mudar o tamanho da fonte`,    ja: `文字サイズを変更` },
+                    active:  { default: `Close Font Size Menu`, pt: `Fechar o menu de fonte`, ja: `文字サイズメニューを閉じる` }
                 },
                 //className: 'bibi-button-font-size bibi-button-font-size-change',
                 Icon: `<span class="bibi-icon bibi-icon-change-fontsize"></span>`,
@@ -3863,7 +3863,7 @@ I.FontSizeChanger = { create: () => {
                 Icon: `<span class="bibi-icon bibi-icon-fontsize bibi-icon-fontsize-medium"></span>`,
                 action: changeFontSizeStep, Step:  0
             }, {
-                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Small`,   default: `<span class="non-visual-in-label">Font Size:</span> Pequeno`,                        ja: `<span class="non-visual-in-label">文字サイズ：</span>小` } },
+                Labels: { default: { default: `<span class="non-visual-in-label">Font Size:</span> Small`,   pt: `<span class="non-visual-in-label">Font Size:</span> Pequeno`,                        ja: `<span class="non-visual-in-label">文字サイズ：</span>小` } },
                 Icon: `<span class="bibi-icon bibi-icon-fontsize bibi-icon-fontsize-small"></span>`,
                 action: changeFontSizeStep, Step: -1
             }, {
@@ -4124,7 +4124,7 @@ I.Loupe = { create: () => {
                 action: () => Loupe.scale(Loupe.CurrentTransformation.Scale * S['loupe-scale-per-step']),
                 updateState: function(State) { I.setUIState(this, typeof State == 'string' ? State : (Loupe.CurrentTransformation.Scale >= S['loupe-max-scale']) ? 'disabled' : 'default'); }
             }, { 
-                Labels: { default: { default: `Reset Zoom-in/out`, ja: `元のサイズに戻す` } },
+                Labels: { default: { default: `Reset Zoom-in/out`, pt: `Resetar o Zoom`, ja: `元のサイズに戻す` } },
                 Icon: `<span class="bibi-icon bibi-icon-loupe bibi-icon-loupe-reset"></span>`,
                 Help: true,
                 action: () => Loupe.scale(1),
@@ -4417,8 +4417,8 @@ I.BookmarkManager = { create: () => { if(!S['use-bookmarks'] || !O.Biscuits) ret
                 Opener: I.Menu.L.addButtonGroup({ Sticky: true, id: 'bibi-buttongroup_bookmarks' }).addButton({
                     Type: 'toggle',
                     Labels: {
-                        default: { default: `Manage Bookmarks`,     ja: `しおりメニューを開く` },
-                        active:  { default: `Close Bookmarks Menu`, ja: `しおりメニューを閉じる` }
+                        default: { default: `Manage Bookmarks`, pt: `Criar marcadores`,    ja: `しおりメニューを開く` },
+                        active:  { default: `Close Bookmarks Menu`, pt: `Fechar o menu de marcadores`, ja: `しおりメニューを閉じる` }
                     },
                     Icon: `<span class="bibi-icon bibi-icon-manage-bookmarks"></span>`,
                     Help: true
@@ -4431,7 +4431,7 @@ I.BookmarkManager = { create: () => { if(!S['use-bookmarks'] || !O.Biscuits) ret
             });
             BookmarkManager.ButtonGroup = BookmarkManager.Subpanel.addSection({
                 id: 'bibi-subpanel-section_bookmarks',
-                Labels: { default: { default: `Bookmarks`, ja: `しおり` } }
+                Labels: { default: { default: `Bookmarks`, pt: `Marcador`, ja: `しおり` } }
             }).addButtonGroup();
             const BookmarkBiscuits = O.Biscuits.remember('Book', 'Bookmarks');
             if(Array.isArray(BookmarkBiscuits) && BookmarkBiscuits.length) BookmarkManager.Bookmarks = BookmarkBiscuits;
@@ -4546,7 +4546,7 @@ I.BookmarkManager = { create: () => { if(!S['use-bookmarks'] || !O.Biscuits) ret
                 BookmarkManager.AddButton = BookmarkManager.ButtonGroup.addButton({
                     id: 'bibi-button-add-a-bookmark',
                     Type: 'normal',
-                    Labels: { default: { default: `Add a Bookmark to Current Page`, ja: `現在のページにしおりを挟む` } },
+                    Labels: { default: { default: `Add a Bookmark to Current Page`, pt: `Criar um marcador na página`, ja: `現在のページにしおりを挟む` } },
                     Icon: `<span class="bibi-icon bibi-icon-bookmark bibi-icon-add-a-bookmark"></span>`,
                     action: () => Bookmarks.length ? BookmarkManager.add(Bookmarks[0]) : false
                 });
@@ -4636,8 +4636,8 @@ I.Arrows = { create: () => { if(!S['use-arrows']) return I.Arrows = null;
         }
     };
     O.HTML.classList.add('arrows-active');
-    Arrows.Back    = O.Body.appendChild(sML.create('div', { className: 'bibi-arrow', id: 'bibi-arrow-back',    Labels: { default: { default: `Back`,    ja: `戻る` } }, Distance: -1 }));
-    Arrows.Forward = O.Body.appendChild(sML.create('div', { className: 'bibi-arrow', id: 'bibi-arrow-forward', Labels: { default: { default: `Forward`, ja: `進む` } }, Distance:  1 }));
+    Arrows.Back    = O.Body.appendChild(sML.create('div', { className: 'bibi-arrow', id: 'bibi-arrow-back',    Labels: { default: { default: `Back`, pt: `Voltar`,   ja: `戻る` } }, Distance: -1 }));
+    Arrows.Forward = O.Body.appendChild(sML.create('div', { className: 'bibi-arrow', id: 'bibi-arrow-forward', Labels: { default: { default: `Forward`, pt: `Avançar`, ja: `進む` } }, Distance:  1 }));
     Arrows[-1] = Arrows.Forward.Pair = I.Flipper.Back.Arrow    = Arrows.Back;
     Arrows[ 1] = Arrows.Back.Pair    = I.Flipper.Forward.Arrow = Arrows.Forward;
     [Arrows.Back, Arrows.Forward].forEach(Arrow => {

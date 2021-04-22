@@ -54,16 +54,16 @@ Bibi.preset({
 "max-history"                : 19, // Number (0-19). If larger than 19, treated as 19. If 0, "use-history" is treated as "no". 
 
 "use-bookmarks"              : "yes", // "yes" or "no" or "desktop" or "mobile"
-"max-bookmarks"              : 3, // Number (0-9). If larger than 9, treated as 9. If 0, "use-bookmarks" is treated as "no" (but old data is kept in localStorage). 
+"max-bookmarks"              : 5, // Number (0-9). If larger than 9, treated as 9. If 0, "use-bookmarks" is treated as "no" (but old data is kept in localStorage).
 
 "orientation-border-ratio"   : 1 * 2 / 1.5, // Number (Width per Height)
 
 "ui-font-family"             : "", // CSS font-family value as "'Helvetica', sans-serif" or ""
 
-"item-padding-left"          : 24, // Number of pixel (It affects only for reflowable books.)
-"item-padding-right"         : 24, // Number of pixel (It affects only for reflowable books.)
+"item-padding-left"          : 48, // Number of pixel (It affects only for reflowable books.)
+"item-padding-right"         : 48, // Number of pixel (It affects only for reflowable books.)
 "item-padding-top"           : 48, // Number of pixel (It affects only for reflowable books.)
-"item-padding-bottom"        : 24, // Number of pixel (It affects only for reflowable books.)
+"item-padding-bottom"        : 48, // Number of pixel (It affects only for reflowable books.)
 
 "spread-gap"                 : 48, // Number of pixel (It affects only in paged view mode.)
 "spread-margin"              : 0, // Number of pixel
@@ -106,7 +106,7 @@ Bibi.preset({
 "website-name-in-title"    : "Booknando - Tecnologia a serviço da vida", // "" or name of your website replaces string "Bibi" in <title>.
 "website-name-in-menu"     : "Booknando", // "" or name of your website appears in setting-menu as a link. (Requires "website-href")
 "website-href"             : "http://booknando.com.br", // "" or URL of your website to be used for the link in setting-menu. (Requires "website-name-in-menu")
-"remove-bibi-website-link" : false, // true or false (if true, the link to Bibi Website is not to be added in setting-menu)
+"remove-bibi-website-link" : true, // true or false (if true, the link to Bibi Website is not to be added in setting-menu)
 
 
 //==============================================================================================================================================
@@ -135,7 +135,7 @@ Bibi.preset({
 // * keep your Bibi and website not to open files which you can not guarantee its security.
 //----------------------------------------------------------------------------------------------------------------------------------------------
 
-/* !!!! BE CAREFUL !!!! */ "allow-scripts-in-content" : true, // true or false (false is recommended).
+/* !!!! BE CAREFUL !!!! */ "allow-scripts-in-content" : false, // true or false (false is recommended).
 // If you change its value `true`, Bibi does not remove scripts natively-included in EPUB.
 // It makes Bibi to be able to open EPUBs including useful scripts.
 // But on the other hand, it may also allow XSS of malicious EPUB in some cases.
